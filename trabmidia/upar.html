@@ -33,9 +33,11 @@
                 <h1>Assistir video no Site</h1>
             </div>
             <br>
-
-            <input type="file" accept="video/*"/>
-            <video controls autoplay></video>
+            <p><strong>Só funciona arquivos .MP4</strong></p>
+            <div class="videos">
+                <input type="file" accept="video/*" multiple onchange="NomeArquivo(this)"/>
+                <video controls autoplay></video>
+            </div>
 
 
 
