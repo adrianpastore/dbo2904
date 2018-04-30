@@ -1,18 +1,13 @@
-const lugar = document.querySelector('div#videos');
-const nomevideo = document.querySelector('#nomevideo');
-const arqvideo = document.querySelector('#videomp4');
-const descricao = document.querySelector('#textarea');
-const formvideo = document.querySelector('form#adcvideo')
-formvideo.addEventListener('submit', function(e) {
-    e.preventDefault();
-        const adc1 = nomevideo.value;
-        const adc2 = arqvideo.value;
-        const adc3 = descricao.value;
-        const adcs = `<h2>${adc1}</h2>
-                    <video width="320" height="240" controls>
-                        <source src="${adc2}" type="video/mp4">
-                    </video>
-                    <p><strong>${adc3}</strong></p>`;
-        lugar.innerHTML += adcs;
-});
+let Assistirvideo = function() {
+  let URL = window.URL || window.webkitURL
 
+  let playSelectedFile = function (event) {
+    let file = this.files[0]
+    let type = file.type
+    let videoNode = document.querySelector('video')
+    let fileURL = URL.createObjectURL(file)
+    videoNode.src = fileURL
+  }
+  let inputNode = document.querySelector('input')
+  inputNode.addEventListener('change', playSelectedFile, false)
+}()
